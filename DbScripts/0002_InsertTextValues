@@ -1,0 +1,5 @@
+USE GuestBook GO
+INSERT INTO comments (Username, Email, Site, Text, IsApproved, IP, BrowserInfo)
+VALUES ('Mark', 'mark@mail.com', '', 'cool', 1, '123.86.46.16', 'mozila'),
+       ('John', 'john@mail.com', 'http://john.com', 'fantastic!!!1', 1, '123.86.46.16', 'mozila'),
+       ('Larry', 'larry@mail.com', '', 'very nice :)', 1, '123.86.46.16', 'mozila')

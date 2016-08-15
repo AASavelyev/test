@@ -10,12 +10,30 @@
     $site = htmlspecialchars($_POST['site']);
     $comment = htmlspecialchars($_POST['comment']);
     $id = htmlspecialchars($_POST['id']);
+    $token = htmlspecialchars($_POST['g-recaptcha-response']);
+
+    $url = 'https://www.google.com/recaptcha/api/siteverify';
+    $data = array(
+        'secret' => '6LfAkCcTAAAAAB9AKmYLhZ7aVUoLRa8Q8H0LwMMC',
+        'response' => $token
+    );
+
+    $options = array(
+        'http' => array(
+            'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+            'method'  => 'POST',
+            'content' => http_build_query($data)
+        )
+    );
+    $context  = stream_context_create($options);
+    $result = json_decode(file_get_contents($url, false, $context), true);
 
     $validation = new Validation();
     $isValid = $username != '' && !$validation->checkXSS($username)
                 && $validation->validateEmail($email)
                 && $validation->validateUrl($site)
-                && $comment != '' && !$validation->checkXSS($comment);
+                && $comment != '' && !$validation->checkXSS($comment)
+                && $result['success'];
     if ($isValid){
         if ($id == 0) {
             $commentRepository->create(new Comment(array(
@@ -66,7 +84,6 @@
 <div class="container">
     <?php if ($isValid): ?>
         <h2>Your comment was added to moderation.</h2>
-        <h2><?= $test ?></h2>
     <?php else: ?>
         <h2>Probably you missed something please check again. Username, email and comment are required.</h2>
     <?php endif; ?>

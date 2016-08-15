@@ -9,6 +9,7 @@ ini_set('display_errors', 1);
     <meta charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="styles/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <script src='https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit'></script>
 </head>
 <body>
 <nav class="navbar navbar-default">
@@ -56,14 +57,18 @@ ini_set('display_errors', 1);
             </div>
         </div>
         <div class="form-group">
+            <div id="g-recaptcha" class="g-recaptcha col-sm-10 col-sm-offset-2"></div>
+        </div>
+        <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-default">Comment</button>
+                <button type="submit" class="btn btn-default" name="submit-btn" disabled>Comment</button>
             </div>
         </div>
     </form>
 </div>
 
 <script src="scripts/jquery.js"></script>
-<script src="scripts/bootstrap.min.js.js"></script>
+<script src="scripts/bootstrap.min.js"></script>
+<script src="scripts/addcomment.js"></script>
 </body>
 </html>

@@ -2,10 +2,12 @@
     error_reporting(E_ALL);
     ini_set('display_errors', 1);
     require_once 'Repositories/CommentRepository.php';
-    $username = htmlspecialchars($_POST['username']);
-    $password = htmlspecialchars($_POST['password']);
-    if ($username !== 'admin' || $password !== '123456')
-    {
+    require_once 'Repositories/AdminRepository.php';
+    require_once '_headerLayout.php';
+    $username = array_key_exists('username', $_POST) ? htmlspecialchars($_POST['username']) : "";
+    $password = array_key_exists('password', $_POST) ? htmlspecialchars($_POST['password']) : "";
+    $adminRepository = new AdminRepository();
+    if (!$adminRepository->isAuth() && !$adminRepository->login($username, $password)){
         header("Location: /adminlogin.php");
     }
 
@@ -13,31 +15,6 @@
     $comments = $commentRepository->getAll();
     $i = 1;
 ?>
-
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" type="text/css" href="styles/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="styles/style.css">
-</head>
-<body>
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="collapsed navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-5" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a href="index.php" class="navbar-brand">Гостевая книга</a>
-        </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-5">
-            <p class="navbar-text navbar-right"></p>
-        </div>
-    </div>
-</nav>
 <div class="container">
     <table class="table">
         <caption>All comments</caption>
@@ -100,5 +77,6 @@
 <script src="scripts/jquery.js"></script>
 <script src="scripts/bootstrap.min.js"></script>
 <script src="scripts/admin.js"></script>
-</body>
-</html>
+<?php
+    require_once '_bottomLayout.php';
+?>

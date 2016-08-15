@@ -1,0 +1,3 @@
+USE GuestBook GO
+INSERT INTO admins (Username, Password)
+VALUES ('admin', '123456')

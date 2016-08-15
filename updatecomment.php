@@ -3,37 +3,16 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 require_once 'Repositories/CommentRepository.php';
+require_once '_headerLayout.php';
 $id = htmlspecialchars($_GET['id']);
 $commentRepository = new CommentRepository();
 $comment = $commentRepository->getById($id);
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" type="text/css" href="styles/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="styles/style.css">
-</head>
-<body>
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="collapsed navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-5" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a href="index.php" class="navbar-brand">Гостевая книга</a>
-        </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-5">
-            <p class="navbar-text navbar-right"></p>
-        </div>
-    </div>
-</nav>
 <div class="container">
     <h3 class="text-center">Add your comment</h3>
+    <h3 class="text-success hide text-center"></h3>
+    <h3 class="text-danger hide text-center"></h3>
     <form class="form-horizontal" action="savecomment.php" method="post">
         <input type="hidden" name="id" value="<?= $comment->id ?>">
         <div class="form-group">
@@ -62,7 +41,7 @@ $comment = $commentRepository->getById($id);
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-default">Save</button>
+                <button type="submit" name="submit-btn" class="btn btn-default">Save</button>
             </div>
         </div>
     </form>
@@ -70,6 +49,8 @@ $comment = $commentRepository->getById($id);
 
 <script src="scripts/jquery.js"></script>
 <script src="scripts/bootstrap.min.js"></script>
-</body>
-</html>
+<script src="scripts/updatecomment.js"></script>
+<?php
+require_once '_bottomLayout.php';
+?>
 

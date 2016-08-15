@@ -1,6 +1,6 @@
 <?php
 
-class Comment1
+class Comment
 {
     public $id;
     public $username;

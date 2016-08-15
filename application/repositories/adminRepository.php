@@ -1,7 +1,7 @@
 <?php
-require_once './DbEntities/Database.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/application/core/database.php';
 
-class AdminRepository1
+class AdminRepository
 {
     private $validCookie = '610fe7eb-7cbe-43ef-ab9d-f77d29c20ed7';
 
@@ -12,7 +12,7 @@ class AdminRepository1
         $sql = "SELECT * FROM admins WHERE username='".$username."' AND password='".$pwd."'";
         $result = $db->connection->query($sql);
         if ($result->num_rows == 1) {
-            setcookie("auth", $this->validCookie, time()+3600);
+            setcookie("auth", $this->validCookie, time()+3600, "/");
             $db->CloseConnection();
             return true;
         }

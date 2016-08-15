@@ -5,6 +5,6 @@ $(document).ready(function(){
     });
 
     $('#remove-comment-btn').on('click', function(){
-        window.location.href = "/removeComment.php?id=" + $("#removed-comment").val();
+        window.location.href = "/admin/remove/" + $("#removed-comment").val();
     })
 });

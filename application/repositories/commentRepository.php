@@ -1,8 +1,9 @@
 <?php
-require_once './DbEntities/Comment.php';
-require_once './DbEntities/Database.php';
 
-class CommentRepository1
+require_once $_SERVER['DOCUMENT_ROOT'].'/application/models/comment.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/application/core/database.php';
+
+class CommentRepository
 {
     public function getApproved(){
         $db = new Database();
@@ -54,7 +55,7 @@ class CommentRepository1
         $browserInfo = $this->preventSqlInjection($db->connection, $comment->browserInfo);
         $sql = "INSERT INTO comments (Username, Email, Site, Text, IsApproved, IP, BrowserInfo)
                 VALUES ('".$username."', '".$email."', '".$site."', '".$text
-                        ."', 0, '".$comment->ip."', '".$browserInfo."')";
+            ."', 0, '".$comment->ip."', '".$browserInfo."')";
         $success = $db->connection->query($sql);
         $db->CloseConnection();
         return $success;

@@ -1,9 +1,6 @@
-<?php
-require_once '_headerLayout.php';
-?>
 <div class="container">
     <h3 class="text-center">Add your comment</h3>
-    <form class="form-horizontal" action="admin.php" method="post">
+    <form class="form-horizontal" action="/admin/index" method="post">
         <div class="form-group">
             <label for="inputUserName" class="col-sm-2 control-label">User Name</label>
             <div class="col-sm-10">
@@ -23,9 +20,3 @@ require_once '_headerLayout.php';
         </div>
     </form>
 </div>
-
-<script src="scripts/jquery.js"></script>
-<script src="scripts/bootstrap.min.js"></script>
-<?php
-require_once '_bottomLayout.php';
-?>

@@ -9,15 +9,16 @@ class AdminRepository
         $db = new Database();
         $db->CreateConnection();
 
-        $sql = "SELECT * FROM admins WHERE username='".$username."' AND password='".$pwd."'";
-        $result = $db->connection->query($sql);
-        if ($result->num_rows == 1) {
+        $sth = $db->connection->prepare("SELECT * FROM admins WHERE username=? AND password=?");
+        $sth->execute(array($username, $pwd));
+        $result = $sth->fetchAll();
+        $db->CloseConnection();
+        $sth = null;
+        if (count($result) == 1){
             setcookie("auth", $this->validCookie, time()+3600, "/");
-            $db->CloseConnection();
             return true;
         }
-        $db->CloseConnection();
-        return array();
+        return false;
     }
 
     public function isAuth(){

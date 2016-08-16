@@ -9,116 +9,109 @@ class CommentRepository
         $db = new Database();
         $db->CreateConnection();
 
-        $sql = "SELECT * FROM comments WHERE IsApproved=1";
-        $result = $db->connection->query($sql);
-        if ($result->num_rows > 0) {
-            $comments = array();
-            while($row = $result->fetch_assoc()) {
-                $comments[] = new Comment($row);
-            }
-            return $comments;
-        } else {
-            return array();
+        $sth = $db->connection->prepare('SELECT * FROM comments WHERE IsApproved=1');
+        $sth->execute();
+        $result = $sth->fetchAll();
+        $comments = array();
+        foreach ($result as $row)
+        {
+            $comments[] = new Comment($row);
         }
         $db->CloseConnection();
+        $sth = null;
+        return $comments;
     }
 
     public function getAll(){
         $db = new Database();
         $db->CreateConnection();
 
-        $sql = "SELECT * FROM comments";
-        $result = $db->connection->query($sql);
-        if ($result->num_rows > 0) {
-            $comments = array();
-            while($row = $result->fetch_assoc()) {
-                $comments[] = new Comment($row);
-            }
-            return $comments;
-        } else {
-            return array();
+        $sth = $db->connection->prepare('SELECT * FROM comments');
+        $sth->execute();
+        $result = $sth->fetchAll();
+        $comments = array();
+        foreach ($result as $row)
+        {
+            $comments[] = new Comment($row);
         }
         $db->CloseConnection();
-    }
-
-    private function preventSqlInjection($link, $str){
-        return mysqli_real_escape_string($link, $str);
+        $sth = null;
+        return $comments;
     }
 
     public function create(Comment $comment){
         $db = new Database();
         $db->CreateConnection();
-        $username = $this->preventSqlInjection($db->connection, $comment->username);
-        $email = $this->preventSqlInjection($db->connection, $comment->email);
-        $site = $this->preventSqlInjection($db->connection, $comment->site);
-        $text = $this->preventSqlInjection($db->connection, $comment->text);
-        $browserInfo = $this->preventSqlInjection($db->connection, $comment->browserInfo);
-        $sql = "INSERT INTO comments (Username, Email, Site, Text, IsApproved, IP, BrowserInfo)
-                VALUES ('".$username."', '".$email."', '".$site."', '".$text
-            ."', 0, '".$comment->ip."', '".$browserInfo."')";
-        $success = $db->connection->query($sql);
+        $username = $comment->username;
+        $email = $comment->email;
+        $site = $comment->site;
+        $text = $comment->text;
+        $browserInfo = $comment->browserInfo;
+
+        $sth = $db->connection->prepare('INSERT INTO comments (Username, Email, Site, Text, IsApproved, IP, BrowserInfo)
+                VALUES (?, ?, ?, ?, 0, ?, ?)');
+        $sth->execute(array($username, $email, $site, $text, $comment->ip, $browserInfo));
+
         $db->CloseConnection();
-        return $success;
+        $sth = null;
     }
 
     public function update(Comment $comment){
         $db = new Database();
         $db->CreateConnection();
-        $username = $this->preventSqlInjection($db->connection, $comment->username);
-        $email = $this->preventSqlInjection($db->connection, $comment->email);
-        $site = $this->preventSqlInjection($db->connection, $comment->site);
-        $text = $this->preventSqlInjection($db->connection, $comment->text);
-        $sql = "UPDATE comments SET Username='".$username."',Email='".$email."',Site='".$site."',Text='".$text."' WHERE Id=".$comment->id;
-        $success = $db->connection->query($sql);
+        $username = $comment->username;
+        $email = $comment->email;
+        $site = $comment->site;
+        $text = $comment->text;
+
+        $sth = $db->connection->prepare('UPDATE comments SET Username=?,Email=?,Site=?,Text=? WHERE Id=?');
+        $sth->execute(array($username, $email, $site, $text, $comment->id));
+
         $db->CloseConnection();
-        return $success;
+        $sth = null;
     }
 
     public function approve($id){
         $db = new Database();
         $db->CreateConnection();
-
-        $sql = "UPDATE comments SET IsApproved=1 WHERE Id=".$id;
-
-        $success = $db->connection->query($sql);
+        $sth = $db->connection->prepare('UPDATE comments SET IsApproved=1 WHERE Id=?');
+        $sth->execute(array($id));
         $db->CloseConnection();
-        return $success;
+        $sth = null;
     }
 
     public function unapprove($id){
         $db = new Database();
         $db->CreateConnection();
-
-        $sql = "UPDATE comments SET IsApproved=0 WHERE Id=".$id;
-
-        $success = $db->connection->query($sql);
+        $sth = $db->connection->prepare('UPDATE comments SET IsApproved=0 WHERE Id=?');
+        $sth->execute(array($id));
         $db->CloseConnection();
-        return $success;
+        $sth = null;
     }
 
     public function remove($id){
         $db = new Database();
         $db->CreateConnection();
-
-        $sql = "DELETE FROM comments WHERE Id=".$id;
-
-        $success = $db->connection->query($sql);
+        $sth = $db->connection->prepare('DELETE FROM comments WHERE Id=?');
+        $sth->execute(array($id));
         $db->CloseConnection();
-        return $success;
+        $sth = null;
     }
 
     public function getById($id){
         $db = new Database();
         $db->CreateConnection();
+        $sth = $db->connection->prepare('SELECT * FROM comments WHERE Id=?');
+        $sth->execute(array($id));
+        $result = $sth->fetchAll();
 
-        $sql = "SELECT * FROM comments WHERE Id=".$id;
-        $result = $db->connection->query($sql);
-        if ($result->num_rows > 0) {
-            $row = $result->fetch_assoc();
+        $db->CloseConnection();
+        $sth = null;
+        if (count($result) > 0) {
+            $row = $result[0];
             return new Comment($row);
         } else {
             return array();
         }
-        $db->CloseConnection();
     }
 }

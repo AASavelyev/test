@@ -9,10 +9,10 @@ class Database
     public $connection;
 
     public function CreateConnection(){
-        $this->connection = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
+        $this->connection = new PDO("mysql:host=localhost;dbname=GuestBook", $this->username, $this->password);
     }
 
     public function CloseConnection(){
-        $this->connection->close();
+        $connection = null;
     }
 }

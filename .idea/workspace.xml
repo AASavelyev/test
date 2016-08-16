@@ -35,8 +35,8 @@
       <file leaf-file-name="controller_main.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/controller_main.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.962963">
-              <caret line="46" column="29" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="29" />
+            <state vertical-scroll-proportion="-20.296297">
+              <caret line="58" column="13" selection-start-line="58" selection-start-column="13" selection-end-line="58" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -55,10 +55,29 @@
       <file leaf-file-name="adminRepository.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/repositories/adminRepository.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.333333">
-              <caret line="14" column="65" selection-start-line="14" selection-start-column="65" selection-end-line="14" selection-end-column="65" />
+            <state vertical-scroll-proportion="-13.333333">
+              <caret line="20" column="21" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
               <folding>
-                <marker date="1471270555232" expanded="true" signature="296:371" placeholder="SELECT * FRO..admins..." />
+                <marker date="1471343846128" expanded="true" signature="321:373" placeholder="SELECT * FRO..admins..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="commentRepository.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/repositories/commentRepository.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.740741">
+              <caret line="58" column="20" selection-start-line="58" selection-start-column="20" selection-end-line="58" selection-end-column="20" />
+              <folding>
+                <marker date="1471344348592" expanded="true" signature="321:362" placeholder="SELECT * FRO..comments..." />
+                <marker date="1471344348592" expanded="true" signature="776:798" placeholder="SELECT * FRO..comments..." />
+                <marker date="1471344348592" expanded="true" signature="1412:1536" placeholder="INSERT INTO ..." />
+                <marker date="1471344348592" expanded="true" signature="1981:2044" placeholder="UPDATE comme..." />
+                <marker date="1471344348592" expanded="true" signature="2324:2367" placeholder="UPDATE comme..." />
+                <marker date="1471344348592" expanded="true" signature="2606:2649" placeholder="UPDATE comme..." />
+                <marker date="1471344348592" expanded="true" signature="2885:2916" placeholder="DELETE FROM ..." />
+                <marker date="1471344348592" expanded="true" signature="3153:3186" placeholder="SELECT * FRO..comments..." />
               </folding>
             </state>
           </provider>
@@ -67,7 +86,7 @@
       <file leaf-file-name="controller_admin.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/controller_admin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.62963">
+            <state vertical-scroll-proportion="-5.6296296">
               <caret line="21" column="74" selection-start-line="21" selection-start-column="74" selection-end-line="21" selection-end-column="74" />
               <folding />
             </state>
@@ -94,21 +113,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="updatecomment.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/updatecomment.js">
+      <file leaf-file-name="update_view.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/admin/update_view.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="-24.0">
+              <caret line="36" column="6" selection-start-line="36" selection-start-column="6" selection-end-line="36" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="update_view.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/views/admin/update_view.php">
+      <file leaf-file-name="database.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/core/database.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.74311924">
-              <caret line="36" column="6" selection-start-line="36" selection-start-column="6" selection-end-line="36" selection-end-column="6" />
+            <state vertical-scroll-proportion="0.22706422">
+              <caret line="11" column="35" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -134,9 +153,7 @@
         <option value="$PROJECT_DIR$/application/models/comment.php" />
         <option value="$PROJECT_DIR$/DbEntities/Comment.php" />
         <option value="$PROJECT_DIR$/Repositories/CommentRepository.php" />
-        <option value="$PROJECT_DIR$/application/core/database.php" />
         <option value="$PROJECT_DIR$/DbEntities/Database.php" />
-        <option value="$PROJECT_DIR$/application/repositories/commentRepository.php" />
         <option value="$PROJECT_DIR$/application/styles/bootstrap.min.css" />
         <option value="$PROJECT_DIR$/styles/bootstrap.min.css" />
         <option value="$PROJECT_DIR$/application/views/add_view.html" />
@@ -157,9 +174,11 @@
         <option value="$PROJECT_DIR$/application/core/route.php" />
         <option value="$PROJECT_DIR$/application/views/main/main_view.php" />
         <option value="$PROJECT_DIR$/application/controllers/controller_admin.php" />
-        <option value="$PROJECT_DIR$/application/repositories/adminRepository.php" />
-        <option value="$PROJECT_DIR$/application/controllers/controller_main.php" />
         <option value="$PROJECT_DIR$/application/views/admin/update_view.php" />
+        <option value="$PROJECT_DIR$/application/repositories/adminRepository.php" />
+        <option value="$PROJECT_DIR$/application/core/database.php" />
+        <option value="$PROJECT_DIR$/application/repositories/commentRepository.php" />
+        <option value="$PROJECT_DIR$/application/controllers/controller_main.php" />
       </list>
     </option>
   </component>
@@ -169,6 +188,9 @@
   </component>
   <component name="NamedScopeManager">
     <order />
+  </component>
+  <component name="PhpServers">
+    <servers />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP" />
   <component name="ProjectFrameBounds">
@@ -229,6 +251,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FirstProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="repositories" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -315,6 +355,9 @@
     </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="701c0b11-0128-4b42-91e6-8f402cfcb915" name="Default" comment="" />
@@ -326,7 +369,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="0" width="1682" height="1025" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -334,7 +377,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24940476" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24940476" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -348,6 +391,14 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
@@ -360,14 +411,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.0">
           <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/core/database.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.333333">
-          <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -435,23 +478,6 @@
           <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
           <folding>
             <marker date="1471266017808" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..admins..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/repositories/commentRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.061926607">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="72" />
-          <folding>
-            <marker date="1471264167840" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..comments..." />
-            <marker date="1471264167840" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..comments..." />
-            <marker date="1471264167840" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1471264167840" expanded="true" signature="-1:-1" placeholder="UPDATE comme..." />
-            <marker date="1471264167840" expanded="true" signature="-1:-1" placeholder="UPDATE comme..." />
-            <marker date="1471264167840" expanded="true" signature="-1:-1" placeholder="UPDATE comme..." />
-            <marker date="1471264167840" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1471264167840" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..comments..." />
           </folding>
         </state>
       </provider>
@@ -552,14 +578,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/controller_admin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.62963">
-          <caret line="21" column="74" selection-start-line="21" selection-start-column="74" selection-end-line="21" selection-end-column="74" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/Core_d.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2809633">
@@ -568,28 +586,61 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/update_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-24.0">
+          <caret line="36" column="6" selection-start-line="36" selection-start-column="6" selection-end-line="36" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/controller_admin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.6296296">
+          <caret line="21" column="74" selection-start-line="21" selection-start-column="74" selection-end-line="21" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/repositories/adminRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.333333">
-          <caret line="14" column="65" selection-start-line="14" selection-start-column="65" selection-end-line="14" selection-end-column="65" />
+        <state vertical-scroll-proportion="-13.333333">
+          <caret line="20" column="21" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
           <folding>
-            <marker date="1471270555232" expanded="true" signature="296:371" placeholder="SELECT * FRO..admins..." />
+            <marker date="1471343846128" expanded="true" signature="321:373" placeholder="SELECT * FRO..admins..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/repositories/commentRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.740741">
+          <caret line="58" column="20" selection-start-line="58" selection-start-column="20" selection-end-line="58" selection-end-column="20" />
+          <folding>
+            <marker date="1471344348592" expanded="true" signature="321:362" placeholder="SELECT * FRO..comments..." />
+            <marker date="1471344348592" expanded="true" signature="776:798" placeholder="SELECT * FRO..comments..." />
+            <marker date="1471344348592" expanded="true" signature="1412:1536" placeholder="INSERT INTO ..." />
+            <marker date="1471344348592" expanded="true" signature="1981:2044" placeholder="UPDATE comme..." />
+            <marker date="1471344348592" expanded="true" signature="2324:2367" placeholder="UPDATE comme..." />
+            <marker date="1471344348592" expanded="true" signature="2606:2649" placeholder="UPDATE comme..." />
+            <marker date="1471344348592" expanded="true" signature="2885:2916" placeholder="DELETE FROM ..." />
+            <marker date="1471344348592" expanded="true" signature="3153:3186" placeholder="SELECT * FRO..comments..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/controller_main.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.962963">
-          <caret line="46" column="29" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="29" />
+        <state vertical-scroll-proportion="-20.296297">
+          <caret line="58" column="13" selection-start-line="58" selection-start-column="13" selection-end-line="58" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/update_view.php">
+    <entry file="file://$PROJECT_DIR$/application/core/database.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.74311924">
-          <caret line="36" column="6" selection-start-line="36" selection-start-column="6" selection-end-line="36" selection-end-column="6" />
+        <state vertical-scroll-proportion="0.22706422">
+          <caret line="11" column="35" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="35" />
           <folding />
         </state>
       </provider>

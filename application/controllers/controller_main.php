@@ -42,6 +42,40 @@ class Controller_Main extends Controller
         $comment = htmlspecialchars($_POST['comment']);
         $commentId = htmlspecialchars($_POST['id']);
 
+        $errors = $this->validate($username, $email, $site, $comment);
+        $comment = array(
+            'Id' => $commentId,
+            'Username' => $username,
+            'Email' => $email,
+            'Site' => $site,
+            'Text' => $comment,
+            'IP' => $_SERVER['REMOTE_ADDR'],
+            'BrowserInfo' => $_SERVER['HTTP_USER_AGENT']
+        );
+
+        if ($this->adminRepository->isAuth() && $commentId != 0) { // it means that this request sent admin
+            if (count($errors) == 0 ){
+                $this->commentRepository->update(new Comment($comment));
+            }
+        }
+        else {
+            $token = htmlspecialchars($_POST['g-recaptcha-response']);
+            if (!$this->check_token($token)){
+                $errors[] = 'Captcha is not valid or timeout.';
+            }
+            if (count($errors) == 0) {
+                $this->commentRepository->create(new Comment($comment));;
+            }
+        }
+        $result = array(
+            'success' => count($errors) == 0,
+            'errors' => $errors
+        );
+        echo json_encode($result);
+    }
+
+    private function validate($username, $email, $site, $comment)
+    {
         $errors = array();
         $validation = new Validation();
         if ($username == ''){
@@ -62,72 +96,26 @@ class Controller_Main extends Controller
         if ($validation->checkXSS($comment)){
             $errors[] = 'Not valid. Please don\'t use HTML.' ;
         }
+        return $errors;
+    }
 
-        if ($this->adminRepository->isAuth() && $commentId != 0) { // it means that this request sent admin
-            if (count($errors) == 0 ){
-                $this->commentRepository->update(new Comment(array(
-                    'Id' => $commentId,
-                    'Username' => $username,
-                    'Email' => $email,
-                    'Site' => $site,
-                    'Text' => $comment
-                )));
-                $result = array(
-                    'success' => true
-                );
-                echo json_encode($result);
-            }
-            else {
-                $result = array(
-                    'success' => false,
-                    'errors' => $errors
-                );
-                echo json_encode($result);
-            }
-        }
-        else {
-            $token = htmlspecialchars($_POST['g-recaptcha-response']);
+    private function check_token($token)
+    {
+        $url = 'https://www.google.com/recaptcha/api/siteverify';
+        $data = array(
+            'secret' => '6LfAkCcTAAAAAB9AKmYLhZ7aVUoLRa8Q8H0LwMMC',
+            'response' => $token
+        );
 
-            $url = 'https://www.google.com/recaptcha/api/siteverify';
-            $data = array(
-                'secret' => '6LfAkCcTAAAAAB9AKmYLhZ7aVUoLRa8Q8H0LwMMC',
-                'response' => $token
-            );
-
-            $options = array(
-                'http' => array(
-                    'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
-                    'method'  => 'POST',
-                    'content' => http_build_query($data)
-                )
-            );
-            $context  = stream_context_create($options);
-            $result = json_decode(file_get_contents($url, false, $context), true);
-            if (!$result['success']){
-                $errors[] = 'Captcha is not valid or timeout.';
-            }
-
-            if (count($errors) == 0) {
-                $this->commentRepository->create(new Comment(array(
-                    'Username' => $username,
-                    'Email' => $email,
-                    'Site' => $site,
-                    'Text' => $comment,
-                    'IP' => $_SERVER['REMOTE_ADDR'],
-                    'BrowserInfo' => $_SERVER['HTTP_USER_AGENT']
-                )));
-                $result = array(
-                    'success' => true
-                );
-                echo json_encode($result);
-            }
-            else {
-                $result = array(
-                    'success' => false,
-                    'errors' => $errors
-                );
-                echo json_encode($result);
-            }
-        }
+        $options = array(
+            'http' => array(
+                'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+                'method'  => 'POST',
+                'content' => http_build_query($data)
+            )
+        );
+        $context  = stream_context_create($options);
+        $result = json_decode(file_get_contents($url, false, $context), true);
+        return $result['success'];
     }
 }
